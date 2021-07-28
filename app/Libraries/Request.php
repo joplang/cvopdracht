@@ -33,7 +33,7 @@ class Request
     private static function checkFormTokens()
     {
         if (!isset($_SESSION['token']) || !isset($_POST['f_token'])) {
-            die(View::render('errors/bad-token.view'));
+            die(View::render('errors/bad-tokens.view'));
         } else {
             if ($_SESSION['token'] != $_POST['f_token']) {
                 if (!self::ajax()) {

@@ -47,7 +47,8 @@ class UserModel extends Model
      */
     public static function exists($email, int $id = null)
     {
-        $query = "SELECT id FROM `users` WHERE `email`='" . $email . $id !== null ? " AND id<>" . $id : "";
+        $query = "SELECT id FROM `users` WHERE `email`='" . $email . "'" . ($id !== null ? " AND id<>" . $id : "");
+        
         $result = MySql::query($query)->fetch();
 
         return $result !== false;

@@ -4,7 +4,7 @@
             <span class="guitar-icon">
                 <img src="../images/electric-guitar.svg">
                 <div>
-                    <h3>Guitar(t)ists - Register</h3>
+                    <h3>Register</h3>
                 </div>
             </span>
         </div>
@@ -35,7 +35,7 @@
                 <input type="password" class="form-control" name="password_2" id="password_2" maxlength="50" required>
             </div>
 
-            <input type="hidden" name="token" value="register">
+            <input type="hidden" name="f_token" value="<?= createToken() ?>">
 
             <div class="col-md-12 mb-3">
                 <input type="submit" class="btn btn-dark" value="Submit">

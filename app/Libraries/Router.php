@@ -16,7 +16,7 @@ class Router {
         $router = new static;
     
         // File where routes are stored
-        require $file;
+        require $file; 
 
         return $router;
     }
