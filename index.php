@@ -18,6 +18,8 @@ require 'core/bootstrap.php';
 
 $route = Router::load('routes.php')->direct(Request::uri(), Request::method());
 
+// dd($route);
+
 require $route['uri'];
 $class = new $route['class'];
 

@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Libraries\View;
 use App\Libraries\MySql;
 use App\Libraries\QueryBuilder;
+use App\Models\RoleModel;
 use Exception;
 
 class UserController extends Controller
@@ -13,7 +14,7 @@ class UserController extends Controller
 
     public function index()
     {
-        // sthrow new Exception('Uncaught Exception');
+        
     }
 
     public function add()

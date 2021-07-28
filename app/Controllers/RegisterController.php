@@ -4,13 +4,13 @@ namespace App\Controllers;
 
 use App\Libraries\View;
 use App\Models\UserModel;
-use App\Libraries\Email;
+
 class RegisterController
 {
 
     public function index()
     {
-        return View::render('register.view');
+        return View::render('site/register.view');
     }
 
     /**
@@ -32,7 +32,7 @@ class RegisterController
         {
             return json_encode([
                 'success' => false,
-                'message' => "Passwords don't match."
+                'message' => "Passwords doesn't match."
             ]);
         } else {
             // create password hash and set required fields
@@ -45,16 +45,13 @@ class RegisterController
                 'created_by' => $_REQUEST['created_by'] = 1,
                 'created'    => $_REQUEST['created'] = date('Y-m-d H:i:s'),
             ];
-            
-            $data['id'] = UserModel::store($data);
 
-            UserModel::setUserSession($data);
+            $user = new UserModel;
+            
+            $user->store($data);
 
             $msg = new \Plasticbrain\FlashMessages\FlashMessages();
             $msg->info('Welcome <strong>' . $data['first_name'] . '</strong>!');
-
-            $email = new Email('toby@codegorilla.nl', 'Thanks for registering');
-            $email->sendMail('bla!blabla');
             
             return json_encode([
                 'success'  => true,

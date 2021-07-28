@@ -41,8 +41,6 @@ class Permissions
         $this->crudAction = $crudString;
         $this->setUser();
 
-        // dd($this->route, $this->crudAction);
-
         if (!$this->checkPermission()) {
             return View::render('errors/403.view', [
                 'message' => $route . " | " . $crudString
@@ -51,7 +49,7 @@ class Permissions
     }
 
     /**
-     * Check if the requeste permission is allowed
+     * Check if the requested permission is allowed
      */
     private function checkPermission()
     {
