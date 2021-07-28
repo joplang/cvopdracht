@@ -3,6 +3,7 @@
 ## Installation
 - composer install
 - npm install
+- Create a MySQL database and remember username, database name and password to save in .env file
 - save .env.example as .env
 - enter your MySQL credentials in your .env file
 
