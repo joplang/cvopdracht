@@ -12,6 +12,7 @@ class RegisterController
     {
         return View::render('site/register.view');
     }
+    
 
     /**
      * Register a new user

@@ -25,12 +25,14 @@ class WhenLoggedIn
 
     private $isLoggedIn = false;
 
+
     public function __construct()
     {
         $this->isLoggedIn = isset($_SESSION) && isset($_SESSION['user']);
 
         $this->redirect();
     }
+    
 
     /**
      * Redirect to route

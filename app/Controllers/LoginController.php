@@ -10,15 +10,16 @@ class LoginController
 {
     protected $redirectWhenLoggedIn = 'admin';
 
+
     public function __construct($function = null)
     {
         if (!empty($function)) {
-            if (method_exists(get_class(), $function))
-            {
+            if (method_exists(get_class(), $function)) {
                 $this->$function();
             }
         }
     }
+
 
     /**
      * Return the login view or,
@@ -33,6 +34,7 @@ class LoginController
 
         return View::render('credentials/login.view');
     }
+
 
     /**
      * Check user credentials
@@ -69,12 +71,14 @@ class LoginController
         }
     }
 
+
     public function logout()
     {
         session_destroy();
 
         View::redirect("login");
     }
+    
 
     /**
      * Write user data to SESSION
