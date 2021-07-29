@@ -20,6 +20,7 @@ class Router {
 
         return $router;
     }
+    
 
     /**
      * Get info about a certain route
@@ -47,6 +48,7 @@ class Router {
 
         throw new \Exception('No route defined for this route (' . $uri . " | " . print_r($this->routes[$requestType], true) . ')');
     }
+
 
     /**
      * Get route

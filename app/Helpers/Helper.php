@@ -28,4 +28,67 @@ class Helper
         return false;
     }
 
+
+    /**
+     * Get parameter from URL
+     * @param $param (string) the parameter to search for
+     * @return value (int)
+     */
+    public static function getIdFromUrl($param)
+    {
+        $param = trim(strtolower($param));
+		$allParams = array();
+		$request  = trim($_SERVER['REQUEST_URI']);
+
+		//split the path by '/'
+		$params = explode("/", $request);
+
+		//get rid of empty index (check for double or unnessacary slashes)
+		$cleans = self::cleansParams($params);
+
+		if (empty($cleans) || (!empty($cleans) && count($cleans) < 2))
+		{
+			return '';
+		}
+
+		for ($i = 0; $i < count($cleans); $i++)
+		{
+			if (!empty($param))
+			{
+				if (trim(strtolower($cleans[$i])) == $param)
+				{
+					if ($i + 1 <= count($cleans) - 1)
+					{
+						return (int)$cleans[$i + 1];
+					}
+				}
+			}
+			else
+			{
+				if (count($cleans) > 2 && $i + 1 <= count($cleans) - 1)
+				{
+					$allParams[$cleans[$i]] = $cleans[$i + 1];
+				}
+			}
+		}
+
+		return $allParams;
+    }
+
+    private static function cleansParams($params)
+    {
+        $cleans = array();
+		if (count($params) > 0)
+		{
+			foreach ($params as $key => $value) {
+				if (!empty($value))
+				{
+					array_push($cleans, trim(strtolower($value)));
+				}
+			}
+		}
+
+		return $cleans;
+    }
+
 }

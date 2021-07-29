@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\UserModel;
 use App\Libraries\View;
 use App\Libraries\MySql;
@@ -32,7 +33,8 @@ class UserController extends Controller
 
     public function edit()
     {
-        
+        $id = Helper::getIdFromUrl('user');
+        dd($id);
     }
 
     /**
