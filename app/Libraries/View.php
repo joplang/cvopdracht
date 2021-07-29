@@ -27,6 +27,10 @@ class View
         }
     }
 
+    /**
+     * Redirect to a given URI
+     * @param $uri (string) the URI to redirect to
+     */
     public static function redirect($uri)
     {
         header("Location: //" . $_SERVER['HTTP_HOST'] . '/' . ltrim($uri, '/'), true);

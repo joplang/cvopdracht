@@ -9,7 +9,7 @@ class ProfileController
     public function index()
     {
         if (isset($_SESSION) && isset($_SESSION['user'])) {
-            return View::render('me.view');
+            return View::render('credentials/me.view');
         } else {
             header('Location: login');
         }

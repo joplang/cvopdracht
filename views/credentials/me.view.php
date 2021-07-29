@@ -1,3 +1,5 @@
-<?php require('partials/header.view.php'); ?>
+<?php require('views/partials/header.view.php'); ?>
+
 <h1>Me</h1>
-<?php // require('partials/footer.view.php'); ?>
+
+<?php require('views/partials/footer.view.php'); ?>
