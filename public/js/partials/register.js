@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('form[name="frmRegister"]').on('submit', function() {
-        // $('form[name="frmRegister"] input[type="submit"]').prop('disabled', true)
+        
+        $('form[name="frmRegister"] input[type="submit"]').prop('disabled', true)
 
         $.ajax({
             url: 'register',

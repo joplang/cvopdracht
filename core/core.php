@@ -23,6 +23,7 @@ function dd()
     }
 }
 
+
 /**
  * Create an encrypted token and set the token var in the SESSION
  */
@@ -30,13 +31,13 @@ function createToken()
 {
     $token = bin2hex(openssl_random_pseudo_bytes(16));
 
-    // $iv_length = openssl_cipher_iv_length($ciphering);
     $options = 0;
 
     $_SESSION['token'] = openssl_encrypt($token, $_ENV['CIPHERING'], $_ENV['SECRET'], $options, $_ENV['ENCRYPTION_IV']);
 
     return $_SESSION['token'];
 }
+
 
 /**
  * De-crypt a token and compare given token with the one in the SESSION
@@ -51,6 +52,7 @@ function decryptToken($token)
     return $token === $decryption;
 }
 
+
 /**
  * Create a HTML hidden input element with a token
  * When posting data the value of this hidden field 
@@ -62,10 +64,14 @@ function generateFormTokenHTML()
     return "<input type=\"hidden\" value=\"" . createToken() . "\" name=\"f_token\">";
 }
 
+
+/**
+ * Plurarize a string
+ */
 function pluralize($quantity, $singular, $plural=null)
 {
-    if($quantity==1 || !strlen($singular)) return $singular;
-    if($plural!==null) return $plural;
+    if ($quantity==1 || !strlen($singular)) return $singular;
+    if ($plural!==null) return $plural;
 
     $last_letter = strtolower($singular[strlen($singular)-1]);
     switch($last_letter) {
@@ -78,6 +84,9 @@ function pluralize($quantity, $singular, $plural=null)
     }
 }
 
+/**
+ * All Exceptions go to this function as this has been set in index.php
+ */
 function exception_handler($exception)
 {
     $message = $exception->getMessage();

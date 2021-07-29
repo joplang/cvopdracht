@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Libraries\View;
+use App\Libraries\QueryBuilder;
 
 class AdminController
 {
