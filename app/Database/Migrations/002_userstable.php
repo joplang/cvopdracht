@@ -3,16 +3,16 @@
 return [
     'table_name' => 'users',
 
-    'drop_scheme' => "DROP TABLE IF EXISTS `users`",
+    'drop_scheme' => "SET FOREIGN_KEY_CHECKS = 0; DROP TABLE IF EXISTS `users`; SET FOREIGN_KEY_CHECKS = 1",
 
     'scheme' => "CREATE TABLE IF NOT EXISTS `users` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
+        `role`int(11) NOT NULL,
         `first_name` varchar(80) NOT NULL,
         `insertion` varchar(20),
         `last_name` varchar(80) NOT NULL,
         `email` varchar(255) NOT NULL,
         `password` varchar(255) NOT NULL,
-        `role`int(11) NOT NULL,
         `country` int(11),
         `city` varchar(255),
         `birthday` date,
@@ -24,6 +24,10 @@ return [
         `deleted_by` int(11),
         PRIMARY KEY (`id`)
     ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;",
+
+    'relations' => [
+        'ALTER TABLE `users` ADD FOREIGN KEY (`role`) REFERENCES `roles`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+    ],
 
     'seeder' => [
         'type' => 'array',

@@ -41,8 +41,15 @@ class MigrateDatabase
                     {
                         MySql::query($migrationData['drop_scheme']);
                     }
-
+                    
                     MySql::query($migrationData['scheme']);
+
+                    if (isset($migrationData['relations'])) {
+                        foreach ($migrationData['relations'] as $relation)
+                        {
+                            MySql::query($relation);
+                        }
+                    }
 
                     if (self::$seed && isset($migrationData['seeder']))
                     {

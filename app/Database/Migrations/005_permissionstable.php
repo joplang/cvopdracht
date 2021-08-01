@@ -1,9 +1,15 @@
 <?php
 
+/**
+ * This table is used to create permissions
+ * You can add any unique permission string you like
+ * Use table 'role_has_permissions' to assign permissions to a role
+ */
+
 return [
     'table_name' => 'permissions',
 
-    'drop_scheme' => "DROP TABLE IF EXISTS `permissions`",
+    'drop_scheme' => "SET FOREIGN_KEY_CHECKS = 0; DROP TABLE IF EXISTS `permissions`; SET FOREIGN_KEY_CHECKS = 1;",
 
     'scheme' => "CREATE TABLE IF NOT EXISTS `permissions` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
