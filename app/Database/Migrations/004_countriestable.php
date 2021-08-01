@@ -1,9 +1,13 @@
 <?php
 
+/**
+ *  Just a counties table which I found on the web
+ */
+
 return [
     'table_name' => 'countries',
 
-    'drop_scheme' => "DROP TABLE IF EXISTS `countries`",
+    'drop_scheme' => "SET FOREIGN_KEY_CHECKS = 0; DROP TABLE IF EXISTS `countries`; SET FOREIGN_KEY_CHECKS = 1;",
 
     'scheme' => "CREATE TABLE IF NOT EXISTS `countries` (
         `id` int(11) NOT NULL AUTO_INCREMENT,

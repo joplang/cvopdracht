@@ -2,7 +2,7 @@
     <div class="center-box register-form">
         <div class="mb-3">
             <span class="guitar-icon">
-                <img src="../images/electric-guitar.svg">
+                <img src="/public/images/codegorilla-logo.png">
                 <div>
                     <h3>Register</h3>
                 </div>

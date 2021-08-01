@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * Use this table to add permissions to a role
+ */
+
 return [
     'table_name' => 'role_has_permission',
 
-    'drop_scheme' => "DROP TABLE IF EXISTS `role_has_permission`",
+    'drop_scheme' => "SET FOREIGN_KEY_CHECKS = 0; DROP TABLE IF EXISTS `role_has_permission`;SET FOREIGN_KEY_CHECKS = 1;",
 
     'scheme' => "CREATE TABLE IF NOT EXISTS `role_has_permission` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -17,6 +21,10 @@ return [
         `deleted_by` int(11),
         PRIMARY KEY (`id`)
     ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;",
+
+    'relations' => [
+        'ALTER TABLE `role_has_permission` ADD FOREIGN KEY (`role_id`) REFERENCES `roles`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
+    ],
 
     'seeder' => [
         'type' => 'array',

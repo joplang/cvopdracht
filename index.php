@@ -23,8 +23,7 @@ require $route['uri'];
 $class = new $route['class'];
 $function = $route['function'];
 
-if (!Request::ajax())
-{
+if (!Request::ajax()) {
     // Load the HTML header
     require 'views/layouts/head.view.php';
 
