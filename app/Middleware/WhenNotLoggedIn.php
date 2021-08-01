@@ -27,7 +27,6 @@ class WhenNotLoggedin
 
     public function __construct()
     {
-
         $this->isLoggedIn = isset($_SESSION) && isset($_SESSION['user']);
         
         $this->redirect();

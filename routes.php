@@ -19,12 +19,16 @@ $router->get('admin', 'App/Controllers/AdminController.php@index', [
     'auth' => WhenNotLoggedin::class,
 ]);
 
-$router->get('user', 'App/Controllers/UserController.php@index', [
+$router->get('user', 'App/Controllers/UserController.php@show', [
+    'show' => Permissions::class
+]);
+
+$router->get('user/{id}', 'App/Controllers/UserController.php@show', [
     'show' => Permissions::class
 ]);
 
 $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
-    'update' => Permissions::class
+    'edit' => Permissions::class
 ]);
 
 $router->post('user/update', 'App/Controllers/UserController.php@update', [

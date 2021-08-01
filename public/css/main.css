@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
 body {
     font-family: 'Assistant', sans-serif;
     font-size: 1em;
@@ -18,8 +19,8 @@ a:visited {
 }
 
 header {
-    height: 135px;
-    background-color: white;
+    height: 100px;
+    background-color: rgb(158 210 157);
     width: 100%;
     color: black;
     z-index: 1;
@@ -59,7 +60,6 @@ header {
 }
 
 .login-overlay {
-    background: url('../images/bg-guitarist.jpg');
     background-size: cover;
     position: fixed;
     width: 100%;
@@ -119,8 +119,11 @@ header .guitar-icon {
 
 footer {
     height: 120px;
-    background-color: lavenderblush;
+    background-color: #2f2c2d;
     width: 100%;
+    position: absolute;
+    bottom: -1px;
+    color: white;
 }
 
 .overlay {

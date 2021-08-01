@@ -34,7 +34,7 @@ class Helper
      * @param $param (string) the parameter to search for
      * @return value (int)
      */
-    public static function getIdFromUrl($param)
+    public static function getIdFromUrl($param) : int
     {
         $param = trim(strtolower($param));
 		$allParams = array();
@@ -75,6 +75,11 @@ class Helper
 		return $allParams;
     }
 
+	/**
+	 * Clean up emtpy values in an array that was created by PHP explode function
+	 * @param $params (array)
+	 * @return array with legitimate data
+	 */
     private static function cleansParams($params)
     {
         $cleans = array();

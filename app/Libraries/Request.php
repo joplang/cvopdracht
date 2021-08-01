@@ -13,7 +13,7 @@ class Request
     public static function method()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            self::checkFormTokens();
+            return self::checkFormTokens();
         }
 
         return $_SERVER['REQUEST_METHOD'];
@@ -32,20 +32,30 @@ class Request
      */
     private static function checkFormTokens()
     {
+        $expired = false;
+
         if (!isset($_SESSION['token']) || !isset($_POST['f_token'])) {
-            die(View::render('errors/bad-tokens.view'));
-        } else {
-            if ($_SESSION['token'] != $_POST['f_token']) {
-                if (!self::ajax()) {
-                    die(View::render('errors/bad-tokens.view'));
-                } else {
-                    return json_encode([
-                        'success' => false,
-                        'message' => "Formulier verlopen, refresh en probeer opnieuw.",
-                    ]);
-                }
+            $expired = true;
+        } elseif ($_SESSION['token'] != $_POST['f_token']) {
+            $expired = true;
+        } else if (time() - (int)$_SESSION['token_time'] > $_ENV['TOKEN_EXPIRATION_SECONDS']) {
+            $expired = true;
+        }
+
+        // When not an Ajax call render 'bad-tokens' view
+        //  If it is an Ajax call then return JSON string
+        if ($expired === true) {
+            if (!self::ajax()) {
+                die(View::render('errors/bad-tokens.view'));
+            } else {
+                die(json_encode([
+                    'success' => false,
+                    'message' => "Formulier verlopen, refresh en probeer opnieuw.",
+                ]));
             }
         }
+
+        return $_SERVER['REQUEST_METHOD'];
     }
     
 }
