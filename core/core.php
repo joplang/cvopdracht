@@ -34,6 +34,7 @@ function createToken()
     $options = 0;
 
     $_SESSION['token'] = openssl_encrypt($token, $_ENV['CIPHERING'], $_ENV['SECRET'], $options, $_ENV['ENCRYPTION_IV']);
+    $_SESSION['token_time'] = time();
 
     return $_SESSION['token'];
 }

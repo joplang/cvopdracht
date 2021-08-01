@@ -10,6 +10,7 @@
         </div>
 
         <div class="alert alert-danger" id="register-message" role="alert"></div>
+
         <form method="POST" onsubmit="return false;" name="frmRegister" class="row g-3">
             <div class="col-md-6">
                 <label for="first_name" class="form-label">First name</label>

@@ -21,6 +21,7 @@ class Router {
         return $router;
     }
 
+
     /**
      * Get info about a certain route
      * @param $uri (string) the route to check
@@ -28,6 +29,12 @@ class Router {
      */
     public function direct($uri, $requestType)
     {
+        if ($requestType != 'POST' && $requestType != 'GET') {
+            return $requestType;
+        }
+
+        $uri = $this->checkForParameters($uri, $requestType);
+        
         if (array_key_exists($uri, $this->routes[$requestType])) {
             $routeData = $this->stripFunctionName($this->routes[$requestType][$uri]);
 
@@ -47,6 +54,7 @@ class Router {
 
         throw new \Exception('No route defined for this route (' . $uri . " | " . print_r($this->routes[$requestType], true) . ')');
     }
+
 
     /**
      * Get route
@@ -105,5 +113,45 @@ class Router {
         }
 
         return $data;
+    }
+
+
+    /**
+     * Check url for an id
+     * @param $uri (string) the URL to search in
+     * @param $requestType (string) the request type like GET or POST
+     */
+    private function checkForParameters($uri, $requestType)
+    {
+        if (empty($uri)) {
+            return $uri;
+        }
+
+        $expl = explode('/', $uri);
+
+        // When there's only one parameter, there's not ID to be found
+        if (count($expl) === 1) {
+            return $uri;
+        }
+
+        // It should be an integer value
+        $id = (int)$expl[1];
+
+        if ($id === 0) {
+            return $uri;
+        }
+
+        // The 'main' route is the first occurance in the URL such as user, profile, home etc.
+        $mainRoute = $expl[0];
+
+        // The 'crud' parameter (if any) is the one after the ID that was found
+        //  such as edit, delete 
+        //  The full URL could be something like user/1/edit or education/10 or education/10/delete etc.
+        $crudRoute = count($expl) >= 3 ? $expl[2] : '';
+
+        // In the routes file an ID is written as {id}
+        //  Now we have to rebuild the URI with '/{id}' because thats what's in the route:
+        //  e.g. $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit')
+        return $mainRoute . '/{id}' . (!empty($crudRoute) ? '/' . $crudRoute : '');
     }
 }

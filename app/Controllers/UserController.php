@@ -2,22 +2,24 @@
 
 namespace App\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\UserModel;
-use App\Libraries\View;
-use App\Libraries\MySql;
-use App\Libraries\QueryBuilder;
-use App\Models\RoleModel;
-use Exception;
 
 class UserController extends Controller
 {
 
+    /**
+     * Show's a list of users
+     */
     public function index()
     {
         
     }
 
-    public function add()
+    /**
+     * Show a form to create a new user
+     */
+    public function create()
     {
 
     }
@@ -30,6 +32,9 @@ class UserController extends Controller
         
     }
 
+    /**
+     * Show a form to edit a user record
+     */
     public function edit()
     {
         
@@ -44,9 +49,19 @@ class UserController extends Controller
     }
 
     /**
-     * Archive a user record into the database
+     * Show user record
      */
-    public function destroy(int $id)
+    public function show()
+    {
+        $userId = Helper::getIdFromUrl('user');
+        
+        $user = UserModel::load()->get($userId);
+    }
+
+    /**
+     * Archive a user record into the database (soft delete)
+     */
+    public function destroy()
     {
 
     }

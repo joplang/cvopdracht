@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    $('form[name="frmRegister"]').on('submit', function() {
-        
+    $('form[name="frmRegister"]').on('submit', function(e) {
         $('form[name="frmRegister"] input[type="submit"]').prop('disabled', true)
 
         $.ajax({
@@ -9,6 +8,7 @@ $(document).ready(function() {
             data: $(this).serialize(),
             success: function(result) {
                 const data = JSON.parse(result)
+                
                 if (data.success) {
                     $('form[name="frmRegister"] input[type="submit"]').prop('disabled', false)
                     window.location.href = "/";
