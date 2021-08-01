@@ -5,7 +5,7 @@ namespace App\Helpers;
 class Helper
 {
     /**
-     * Check if there's a session, indicating that a user has been logged in
+     * Check if there's a session, indicating that a user is logged in
      */
     public static function isLoggedIn()
     {
@@ -30,7 +30,7 @@ class Helper
 
 
     /**
-     * Get parameter from URL
+     * Get id from URL
      * @param $param (string) the parameter to search for
      * @return value (int)
      */

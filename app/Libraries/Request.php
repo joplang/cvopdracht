@@ -13,7 +13,7 @@ class Request
     public static function method()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            return self::checkFormTokens();
+            self::checkFormTokens();
         }
 
         return $_SERVER['REQUEST_METHOD'];
@@ -30,7 +30,7 @@ class Request
     /**
      * Compare form token with the one in the session
      */
-    private static function checkFormTokens()
+    private static function checkFormTokens() : void
     {
         $expired = false;
 
@@ -54,8 +54,6 @@ class Request
                 ]));
             }
         }
-
-        return $_SERVER['REQUEST_METHOD'];
     }
     
 }

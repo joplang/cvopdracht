@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * Build queries in an easy way
+ * 
+ * Example: 
+    ->select(['id', 'name'])
+    ->where('id', '>', 1)
+    ->whereAnd('name', 'LIKE %gorilla')
+    ->whereIsNull('deleted')
+    ->orderBy('name')
+ */
+
 namespace App\Libraries;
 
 class QueryBuilder
