@@ -31,6 +31,8 @@ $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
     'edit' => Permissions::class
 ]);
 
+$router->get('user/create', 'App/Controllers/UserController.php@create');
+
 $router->post('user/update', 'App/Controllers/UserController.php@update', [
     'update' => Permissions::class
 ]);

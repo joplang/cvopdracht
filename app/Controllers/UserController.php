@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Helpers\Helper;
+use App\Libraries\MySql;
 use App\Models\UserModel;
+use App\Libraries\View;
 
 class UserController extends Controller
 {
@@ -21,7 +23,9 @@ class UserController extends Controller
      */
     public function create()
     {
-
+        return View::render('users/create.view', [
+            'method'    => 'POST',
+        ]);
     }
 
     /**
@@ -37,7 +41,11 @@ class UserController extends Controller
      */
     public function edit()
     {
+        $userId = Helper::getIdFromUrl('user');
         
+        $user = UserModel::load()->get($userId);
+
+
     }
 
     /**

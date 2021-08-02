@@ -105,7 +105,7 @@ class Router {
             $class = str_replace('/', '\\', substr($uri['controller'], 0, $atSign));
             $class = str_ireplace('.php', '', $class);
             $data = [
-                'uri' => substr($uri['controller'], 0, $atSign),
+                'uri' => lcfirst(substr($uri['controller'], 0, $atSign)),
                 'function' => substr($uri['controller'], $atSign + 1),
                 'class' => $class,
                 'middleware' => $uri['middleware'],

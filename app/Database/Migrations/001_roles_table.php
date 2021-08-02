@@ -10,7 +10,7 @@ return [
         `name` varchar(80) NOT NULL,
         `created` timestamp NOT NULL,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
-        `deleted` timestamp,
+        `deleted` timestamp DEFAULT NULL,
         `created_by` int(11) NOT NULL,
         `updated_by` int(11),
         `deleted_by` int(11),
