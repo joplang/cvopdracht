@@ -188,3 +188,7 @@ footer {
     border-radius: .3em;
     cursor: pointer;
 }
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+}
