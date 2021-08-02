@@ -18,7 +18,7 @@ return [
         `birthday` date,
         `created` timestamp,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
-        `deleted` timestamp,
+        `deleted` timestamp DEFAULT NULL,
         `created_by` int(11) NOT NULL,
         `updated_by` int(11),
         `deleted_by` int(11),

@@ -16,6 +16,8 @@ use App\Libraries\Request;
 
 require 'core/bootstrap.php';
 
+// dd($_SESSION);
+
 $route = Router::load('routes.php')->direct(Request::uri(), Request::method());
 
 require $route['uri'];

@@ -46,4 +46,4 @@
     </div>
 </div>
 
-<script src="../js/partials/register.js"></script>
+<script src="public/js/partials/register.js"></script>

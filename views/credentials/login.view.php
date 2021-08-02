@@ -30,4 +30,4 @@
     </div>
 </div>
 
-<script src="js/partials/login.js"></script>
+<script src="public/js/partials/login.js"></script>
