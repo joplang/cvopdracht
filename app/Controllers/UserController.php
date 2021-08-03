@@ -27,6 +27,7 @@ class UserController extends Controller
         return View::render('users/create.view', [
             'method'    => 'POST',
             'roles'     => RoleModel::load()->all(),
+            'action'    => "/user/store"
         ]);
     }
 
@@ -59,7 +60,11 @@ class UserController extends Controller
         
         $user = UserModel::load()->get($userId);
 
-
+        return View::render('users/edit.view', [
+            'method'    => 'POST',
+            'roles'     => RoleModel::load()->all(),
+            'action'    => '/user/' . $userId . '/update',
+        ]);
     }
 
     /**
@@ -67,8 +72,23 @@ class UserController extends Controller
      */
     public function update()
     {
-        
-    }
+            $user = $_POST;
+
+            //dd($_POST);
+            unset($user['f_token']);
+
+            $userId = Helper::getIdFromUrl('user');
+
+
+            $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
+            $user['updated_by'] = Helper::getUserIdFromSession();
+            $user['updated'] = date('Y-m-d');
+            //dd($user);
+
+
+            UserModel::load()->update($user, $userId);
+
+        }
 
     /**
      * Show user record

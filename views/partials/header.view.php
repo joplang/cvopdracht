@@ -13,6 +13,8 @@
         <a class="nav-link" href="/admin">Admin</a>
         <a class="nav-link" href="/contact">Contact</a>
         <a class="nav-link" href="/register">Register</a>
+        <a class="nav-link" href="/logout">Logout</a>
+
       </div>
     </div>
   </div>

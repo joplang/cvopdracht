@@ -1,4 +1,4 @@
-<form method="<?= $vars['method'] ?>" action="/user/store">
+<form method="<?= $vars['method'] ?>" action="<?= $vars['action'] ?>">
     <div class="container mt-5">
         <div class="row mb-3">
             <div class="col-md-4">
