@@ -39,8 +39,6 @@ class UserController extends Controller
         // Save post data in $user var
         $user = $_POST;
 
-        // Remmove the form token
-        unset($user['f_token']);
 
         // Create a password, set created_by ID and set the date of creation
         $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
@@ -74,8 +72,6 @@ class UserController extends Controller
     {
             $user = $_POST;
 
-            //dd($_POST);
-            unset($user['f_token']);
 
             $userId = Helper::getIdFromUrl('user');
 
@@ -87,6 +83,8 @@ class UserController extends Controller
 
 
             UserModel::load()->update($user, $userId);
+
+            return View::redirect('/');
 
         }
 

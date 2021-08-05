@@ -33,6 +33,12 @@ $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
 
 $router->get('user/create', 'App/Controllers/UserController.php@create');
 
+
+$router->get('jobs', 'App/Controllers/JobController.php@index');
+
+
+
+
 $router->post('user/{id}/update', 'App/Controllers/UserController.php@update', [
     'update' => Permissions::class
 ]);

@@ -15,8 +15,6 @@ class PermissionsModel extends Model
         'id',
         'updated',
         'deleted',
-        'updated_by',
-        'deleted_by',
     ];
 
     /**
