@@ -34,8 +34,12 @@ $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
 $router->get('user/create', 'App/Controllers/UserController.php@create');
 
 
+
 $router->get('jobs', 'App/Controllers/JobController.php@index');
 
+$router->get('educations', 'App/Controllers/EducationController.php@index');
+
+$router->get('hobbies', 'App/Controllers/HobbyController.php@index');
 
 
 
