@@ -19,8 +19,6 @@ class UserModel extends Model
         'id',
         'updated',
         'deleted',
-        'updated_by',
-        'deleted_by',
     ];
 
     /**

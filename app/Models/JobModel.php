@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-class RoleModel extends Model
+class JobsModel extends Model
 {
 
     // Name of the table
-    protected $model = "role";
+    protected $model = "jobs";
 
-    // Max number of records when fetching all records from table
     protected $limit;
 
     // Non writable fields
@@ -34,10 +33,4 @@ class RoleModel extends Model
             $this->protectedFields
         );   
     }
-
-    public function roleName($role_id)
-    {
-        return $this->get($role_id, ['name']);
-    }
-
 }

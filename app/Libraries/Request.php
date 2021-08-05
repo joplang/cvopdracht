@@ -54,6 +54,10 @@ class Request
                 ]));
             }
         }
+        if (isset($_POST['f_token'])) {
+            unset($_POST['f_token']);
+        }
+
     }
     
 }
