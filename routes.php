@@ -9,7 +9,7 @@
  *  See the classes for more information.
  * Add Middleware in an associative array with a key, like the admin route
  * ---------------------------------------------------------------------------------------------------------
-*/
+ */
 
 use App\Middleware\WhenNotLoggedin;
 use App\Middleware\Permissions;
@@ -19,7 +19,7 @@ $router->get('admin', 'App/Controllers/AdminController.php@index', [
     'auth' => WhenNotLoggedin::class,
 ]);
 
-$router->get('user', 'App/Controllers/UserController.php@show', [
+$router->get('user', 'App/Controllers/UserController.php@index', [
     'show' => Permissions::class
 ]);
 
@@ -34,11 +34,25 @@ $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
 $router->get('user/create', 'App/Controllers/UserController.php@create');
 
 
-
+//jobs
 $router->get('jobs', 'App/Controllers/JobController.php@index');
+$router->get('jobs/create', 'App/Controllers/JobController.php@create');
+$router->get('jobs/{id}/edit', 'App/Controllers/JobController.php@edit');
 
+$router->post('jobs/{id}/update', 'App/Controllers/JobController.php@update', [
+    'update' => Permissions::class
+]);
+$router->post('jobs/store', 'App/Controllers/JobController.php@store', [
+    'store' => Permissions::class
+]);
+
+
+
+//educations
 $router->get('educations', 'App/Controllers/EducationController.php@index');
 
+
+//hobbies
 $router->get('hobbies', 'App/Controllers/HobbyController.php@index');
 
 

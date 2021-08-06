@@ -9,14 +9,14 @@ class HobbyModel extends Model
     protected $model = "hobbies";
 
     protected $limit;
-
-    // Non writable fields
+    
     protected $protectedFields = [
         'id',
         'updated',
         'deleted',
+        'updated_by',
+        'deleted_by',
     ];
-
     /**
      * Load class 'staticaly'
      */

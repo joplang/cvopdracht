@@ -9,7 +9,7 @@ use PDO;
 class UserModel extends Model
 {
     // Name of the table
-    protected $model = "user";
+    protected $model = "users";
 
     // Max number of records when fetching all records from table
     protected $limit;
@@ -19,6 +19,8 @@ class UserModel extends Model
         'id',
         'updated',
         'deleted',
+        'updated_by',
+        'deleted_by',
     ];
 
     /**

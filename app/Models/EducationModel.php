@@ -1,13 +1,16 @@
+
 <?php
 
 namespace App\Models;
 
+use App\Models\Model;
+
 class EducationModel extends Model
 {
-
     // Name of the table
     protected $model = "educations";
 
+    // Max number of records when fetching all records from table
     protected $limit;
 
     // Non writable fields
@@ -15,6 +18,8 @@ class EducationModel extends Model
         'id',
         'updated',
         'deleted',
+        'updated_by',
+        'deleted_by',
     ];
 
     /**
@@ -33,4 +38,4 @@ class EducationModel extends Model
             $this->protectedFields
         );   
     }
-}
+} 

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Libraries\View;
 use App\Libraries\QueryBuilder;
 
-class HobbyController
+class HobbyController extends Controller
 {
 
     public function index()

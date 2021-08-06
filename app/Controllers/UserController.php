@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Helpers\Helper;
-use App\Libraries\MySql;
 use App\Models\UserModel;
 use App\Libraries\View;
 use App\Models\RoleModel;
@@ -16,7 +15,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        $user = new UserModel;
+
+        $users = $user->all();
+
+        return View::render('users/index.view', [
+            'users'     => $users,
+        ]);
     }
 
     /**
@@ -26,8 +31,8 @@ class UserController extends Controller
     {
         return View::render('users/create.view', [
             'method'    => 'POST',
+            'action'    => '/user/store',
             'roles'     => RoleModel::load()->all(),
-            'action'    => "/user/store"
         ]);
     }
 
@@ -39,11 +44,10 @@ class UserController extends Controller
         // Save post data in $user var
         $user = $_POST;
 
-
         // Create a password, set created_by ID and set the date of creation
         $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
         $user['created_by'] = Helper::getUserIdFromSession();
-        $user['created'] = date('Y-m-d');
+        $user['created'] = date('Y-m-d H:i:s');
 
         // Save the record to the database
         UserModel::load()->store($user);
@@ -55,13 +59,14 @@ class UserController extends Controller
     public function edit()
     {
         $userId = Helper::getIdFromUrl('user');
-        
+
         $user = UserModel::load()->get($userId);
 
         return View::render('users/edit.view', [
             'method'    => 'POST',
-            'roles'     => RoleModel::load()->all(),
             'action'    => '/user/' . $userId . '/update',
+            'user'      => $user,
+            'roles'     => RoleModel::load()->all(),
         ]);
     }
 
@@ -70,23 +75,17 @@ class UserController extends Controller
      */
     public function update()
     {
-            $user = $_POST;
+        $userId = Helper::getIdFromUrl('user');
 
+        // Save post data in $user var
+        $user = $_POST;
 
-            $userId = Helper::getIdFromUrl('user');
+        // Create a password, set created_by ID and set the date of creation
+        $user['updated_by'] = Helper::getUserIdFromSession();
+        $user['updated'] = date('Y-m-d H:i:s');
 
-
-            $user['password'] = password_hash('Gorilla1!', PASSWORD_DEFAULT);
-            $user['updated_by'] = Helper::getUserIdFromSession();
-            $user['updated'] = date('Y-m-d');
-            //dd($user);
-
-
-            UserModel::load()->update($user, $userId);
-
-            return View::redirect('/');
-
-        }
+        UserModel::load()->update($user, $userId);
+    }
 
     /**
      * Show user record
@@ -94,8 +93,12 @@ class UserController extends Controller
     public function show()
     {
         $userId = Helper::getIdFromUrl('user');
-        
+
         $user = UserModel::load()->get($userId);
+
+        return View::render('users/show.view', [
+            'user'  => $user,
+        ]);
     }
 
     /**
@@ -103,8 +106,8 @@ class UserController extends Controller
      */
     public function destroy()
     {
+        $userId = Helper::getIdFromUrl('user');
 
+        UserModel::load()->destroy($userId);
     }
-
 }
-
