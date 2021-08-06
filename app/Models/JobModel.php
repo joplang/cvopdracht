@@ -10,11 +10,13 @@ class JobsModel extends Model
 
     protected $limit;
 
-    // Non writable fields
-    protected $protectedFields = [
+    // Non writable fields   
+     protected $protectedFields = [
         'id',
         'updated',
         'deleted',
+        'updated_by',
+        'deleted_by',
     ];
 
     /**
