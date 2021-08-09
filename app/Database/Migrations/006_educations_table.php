@@ -8,10 +8,11 @@ return [
     'scheme' => "CREATE TABLE IF NOT EXISTS `educations` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `user_id` int NOT NULL,
-        `start_year` year NOT NULL,
-        `end_year` year DEFAULT NULL,
+        `start` date NOT NULL,
+        `end` date DEFAULT NULL,
         `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `info` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        `organisation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `created` timestamp NOT NULL,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
         `deleted` timestamp DEFAULT NULL,

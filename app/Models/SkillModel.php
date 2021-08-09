@@ -4,9 +4,9 @@ namespace App\Models;
 
 use App\Models\Model;
 
-class EducationModel extends Model
+class SkillModel extends Model
 {
-    protected $model = "educations";
+    protected $model = "skills";
 
     protected $limit;
 

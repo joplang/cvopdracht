@@ -42,8 +42,7 @@ class LoginController
      */
     public function login()
     {
-        if (isset($_REQUEST['email']) && isset($_REQUEST['password']))
-        {
+        if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
             $sql = "SELECT * FROM `users` WHERE `email`='" . $_REQUEST['email'] . "'";
             $res = MySql::query($sql)->fetch();
 
@@ -52,7 +51,7 @@ class LoginController
                     $this->setUserSession($res);
 
                     return json_encode([
-                        'success'  => true, 
+                        'success'  => true,
                         'message'  => "Succesfull loged in.",
                         'redirect' => $this->redirectWhenLoggedIn,
                     ]);
@@ -78,12 +77,12 @@ class LoginController
 
         View::redirect("login");
     }
-    
+
 
     /**
      * Write user data to SESSION
      */
-    private function setUserSession($user) : void
+    private function setUserSession($user): void
     {
         $_SESSION['user'] = [
             'uid'        => (int)$user['id'],

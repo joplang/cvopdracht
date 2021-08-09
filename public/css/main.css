@@ -11,7 +11,7 @@ body {
 a:link,
 a:active,
 a:visited {
-    color: white;
+    color: magenta;
 }
 
 .error-message {
@@ -157,6 +157,7 @@ footer {
         width: 250px;
         height: 100vh;
     }
+
     .profile-options-inner {
         margin-top: 50px;
     }
@@ -189,6 +190,7 @@ footer {
     cursor: pointer;
 }
 
-input[type="text"], input[type="email"] {
+input[type="text"],
+input[type="email"] {
     width: 100%;
 }
