@@ -122,7 +122,27 @@ $router->post('hobbies/{id}/destroy', 'App/Controllers/HobbyController.php@destr
 
 
 //skills
-$router->get('skills', 'App/Controllers/SkillController.php@index');
+$router->get('skills', 'App/Controllers/SkillController.php@index', [
+    'show' => Permissions::class
+]);
+$router->get('skills/create', 'App/Controllers/SkillController.php@create', [
+    'create' => Permissions::class
+]);
+$router->get('skills/{id}/edit', 'App/Controllers/SkillController.php@edit', [
+    'edit' => Permissions::class
+]);
+$router->get('skills/{id}/delete', 'App/Controllers/SkillController.php@delete', [
+    'delete' => Permissions::class
+]);
+$router->post('skills/{id}/update', 'App/Controllers/SkillController.php@update', [
+    'update' => Permissions::class
+]);
+$router->post('skills/store', 'App/Controllers/SkillController.php@store', [
+    'store' => Permissions::class
+]);
+$router->post('skills/{id}/destroy', 'App/Controllers/SkillController.php@destroy', [
+    'destroy' => Permissions::class
+]);
 
 
 

@@ -11,7 +11,7 @@
                 <input type="date" name="start" placeholder="Wanneer begon u?" value="<?= isset($vars['educations']) ? $vars['educations']->start : '' ?>" required>
             </div>
             <div class="col-md-4">
-                <input type="date" name="end" placeholder="Wanneer stopte u?" value="<?= isset($vars['educations']) ? $vars['educations']->end : '' ?>" required>
+                <input type="date" name="end" placeholder="Wanneer stopte u?" value="<?= isset($vars['educations']) ? $vars['educations']->end : '' ?>">
             </div>
         </div>
         <div class="col-md-4">

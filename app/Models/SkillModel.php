@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-
 class SkillModel extends Model
 {
+
     protected $model = "skills";
 
     protected $limit;
