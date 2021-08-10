@@ -58,6 +58,10 @@ class JobController extends Controller
 
     public function store()
     {
+        if ((int)$_POST['end'] === 0) {
+            $_POST['end'] = NULL;
+        }
+
         $job = $_POST;
 
 
@@ -72,6 +76,10 @@ class JobController extends Controller
 
     public function update()
     {
+        if ((int)$_POST['end'] === 0) {
+            $_POST['end'] = NULL;
+        }
+
         $jobId = Helper::getIdFromUrl('jobs');
 
         $job   = $_POST;

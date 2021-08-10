@@ -96,6 +96,8 @@ class UserController extends Controller
 
         $user = UserModel::load()->get($userId);
 
+        //dd($user);
+
         return View::render('users/show.view', [
             'user'  => $user,
         ]);

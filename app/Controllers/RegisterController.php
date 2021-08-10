@@ -12,7 +12,7 @@ class RegisterController
     {
         return View::render('site/register.view');
     }
-    
+
 
     /**
      * Register a new user
@@ -20,8 +20,7 @@ class RegisterController
      */
     public function store()
     {
-        if (UserModel::exists($_REQUEST['email']) === true)
-        {
+        if (UserModel::exists($_REQUEST['email']) === true) {
             return json_encode([
                 'success' => false,
                 'message' => "This user(name) has already been taken.",
@@ -29,8 +28,7 @@ class RegisterController
         }
 
         // check if passwords are equal
-        if ($_REQUEST['password'] != $_REQUEST['password_2'])
-        {
+        if ($_REQUEST['password'] != $_REQUEST['password_2']) {
             return json_encode([
                 'success' => false,
                 'message' => "Passwords doesn't match."
@@ -48,12 +46,12 @@ class RegisterController
             ];
 
             $user = new UserModel;
-            
+
             $user->store($data);
 
             $msg = new \Plasticbrain\FlashMessages\FlashMessages();
             $msg->info('Welcome <strong>' . $data['first_name'] . '</strong>!');
-            
+
             return json_encode([
                 'success'  => true,
                 'message'  => "Ok :-)",
@@ -61,5 +59,4 @@ class RegisterController
             ]);
         }
     }
-
 }

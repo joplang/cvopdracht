@@ -55,6 +55,10 @@ class EducationController extends Controller
 
     public function store()
     {
+        if ((int)$_POST['end'] === 0) {
+            $_POST['end'] = NULL;
+        }
+
         $education = $_POST;
 
         $education['user_id'] = Helper::getUserIdFromSession();
@@ -70,6 +74,10 @@ class EducationController extends Controller
 
     public function update()
     {
+        if ((int)$_POST['end'] === 0) {
+            $_POST['end'] = NULL;
+        }
+
         $educationId = Helper::getIdFromUrl('educations');
 
         $education = $_POST;
