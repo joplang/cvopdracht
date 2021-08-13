@@ -22,12 +22,8 @@ $router->get('admin', 'App/Controllers/AdminController.php@index', [
 
 
 //users
-$router->get('user', 'App/Controllers/UserController.php@index', [
-    'show' => Permissions::class
-]);
-$router->get('user/{id}', 'App/Controllers/UserController.php@show', [
-    'show' => Permissions::class
-]);
+$router->get('user', 'App/Controllers/UserController.php@index');
+$router->get('user/{id}', 'App/Controllers/UserController.php@show');
 $router->get('user/{id}/edit', 'App/Controllers/UserController.php@edit', [
     'edit' => Permissions::class
 ]);

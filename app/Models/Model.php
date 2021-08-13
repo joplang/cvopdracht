@@ -27,20 +27,21 @@ class Model
         $this->protectedFields = $protectedFields;
     }
 
-    
+
     /**
      * Fetching all records from table
      * @return array of objects
      */
-    public function all(array $selectedFields = null)
+    public function all(array $selectedFields = null, $user_id = null)
     {
         $fields = "*";
-        
+        $user_id = (int)$user_id;
+
         if (!empty($selectedFields) && count($selectedFields) > 0) {
             $fields = $this->composeQuery($selectedFields);
         }
 
-        $sql = "SELECT " . $fields . " FROM " . $this->model . " WHERE deleted IS NULL" . (!empty($this->limit) ? " LIMIT " . $this->limit : "");
+        $sql = "SELECT " . $fields . " FROM " . $this->model . " WHERE " . ($user_id > 0 ? 'user_id=' . $user_id . " AND " : "") . " deleted IS NULL" . (!empty($this->limit) ? " LIMIT " . $this->limit : "");
 
         return MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
     }
@@ -70,7 +71,7 @@ class Model
     public function findById($id)
     {
         $data = $this->get($id);
-        
+
         return !is_null($data) ? $data : false;
     }
 
@@ -118,18 +119,16 @@ class Model
 
         return $data;
     }
-    
+
 
     private function composeQuery(array $fields)
     {
         $getFields = '';
 
-        foreach ($fields as $field)
-        {
+        foreach ($fields as $field) {
             $getFields .= $field . ',';
         }
 
         return rtrim($getFields, ',');
     }
-
 }

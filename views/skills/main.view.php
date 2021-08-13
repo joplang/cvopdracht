@@ -1,17 +1,17 @@
 <?php require 'views/partials/header.view.php' ?>
 
 <section>
-    <?php foreach ($vars['skills'] as $skill) : ?>
-        <div>
-            <?= $skill->name ?>
-            <a href="/skills/<?= $skill->id ?>/edit"> <button>edit!</button> </a>
-            <a href="/skills/<?= $skill->id ?>/delete"> <button>verwijder!</button> </a>
+    <div class="container">
+        <?php foreach ($vars['skills'] as $skill) : ?>
+            <div class="card">
+                <?= $skill->name ?>
+                <a href="/skills/<?= $skill->id ?>/edit"> <button>edit!</button> </a>
+                <a href="/skills/<?= $skill->id ?>/delete"> <button>verwijder!</button> </a>
+            <?php endforeach ?>
+            <a href="/skills/create"> <button>Voeg een vaardigheid toe!</button> </a>
+            </div>
 
-        </div>
-
-    <?php endforeach ?>
-
-    <a href="/skills/create"> <button>Voeg een vaardigheid toe!</button> </a>
+    </div>
 </section>
 
 

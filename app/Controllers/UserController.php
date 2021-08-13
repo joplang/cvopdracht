@@ -5,6 +5,10 @@ namespace App\Controllers;
 use App\Helpers\Helper;
 use App\Models\UserModel;
 use App\Libraries\View;
+use App\Models\EducationModel;
+use App\Models\HobbyModel;
+use App\Models\JobsModel;
+use App\Models\SkillModel;
 use App\Models\RoleModel;
 
 class UserController extends Controller
@@ -85,6 +89,8 @@ class UserController extends Controller
         $user['updated'] = date('Y-m-d H:i:s');
 
         UserModel::load()->update($user, $userId);
+
+        return View::redirect('/me');
     }
 
     /**
@@ -96,10 +102,13 @@ class UserController extends Controller
 
         $user = UserModel::load()->get($userId);
 
-        //dd($user);
-
         return View::render('users/show.view', [
-            'user'  => $user,
+            'user'          =>  $user,
+            'jobs'          =>       JobsModel::load()->all(NULL, $userId),
+            'educations'    => EducationModel::load()->all(NULL, $userId),
+            'hobbies'       => HobbyModel::load()->all(NULL, $userId),
+            'skills'        => SkillModel::load()->all(NULL, $userId),
+
         ]);
     }
 
