@@ -72,7 +72,6 @@ class HobbyController extends Controller
         $hobby['updated_by'] = Helper::getUserIdFromSession();
         $hobby['updated'] = date('Y-m-d H:i:s');
 
-        //dd($hobby);
 
         HobbyModel::load()->update($hobby, $hobbyId);
 

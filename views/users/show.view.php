@@ -1,7 +1,5 @@
-<?php
+<?php require 'views/partials/header.view.php' ?>
 
-
-require 'views/partials/header.view.php' ?>
 <section class="main-section p-2 ">
     <div class="container">
         <?php $user = $vars['user']; ?>
@@ -86,8 +84,8 @@ require 'views/partials/header.view.php' ?>
                         </div>
                         <?php foreach ($vars['skills'] as $skill) : ?>
                             <div class="row p-2">
-                                <div class="col"> <?= $skill->name ?> </div>
-                                <div class="col"> <?= $skill->info ?> </div>
+                                <div class="col-6"> <?= $skill->name ?> </div>
+                                <div class="col-6"> <?= $skill->info ?> </div>
                             </div>
 
                         <?php endforeach ?>
@@ -99,9 +97,9 @@ require 'views/partials/header.view.php' ?>
                             <h4>Hobbies</h4>
                         </div>
                         <?php foreach ($vars['hobbies'] as $hobby) : ?>
-                            <div class="row p-2">
-                                <div class="col"> <?= $hobby->name ?> </div>
-                                <div class="col"> <?= $hobby->info ?> </div>
+                            <div class="row p-2 justify-content-center">
+                                <div class="col-6"> <?= $hobby->name ?> </div>
+                                <div class="col-6"> <?= $hobby->info ?> </div>
                             </div>
                         <?php endforeach ?>
                     </div>

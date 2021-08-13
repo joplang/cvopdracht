@@ -26,6 +26,7 @@ require 'views/partials/header.view.php' ?>
                         <h3>Opleidingen</h3>
                     </div>
                     <div class="card-body">
+                        <div class="card-title"><a href="educations/create">Voeg een opleiding toe!</a></div>
                         <?php foreach ($vars['educations'] as $education) : ?>
                             <div class="card-text"> </div>
                             <div class="card-text">
@@ -56,6 +57,7 @@ require 'views/partials/header.view.php' ?>
                         <h3>Werkervaring</h3>
                     </div>
                     <div class="card-body">
+                        <div class="card-title"><a href="jobs/create">Voeg een baan toe!</a></div>
                         <?php foreach ($vars['jobs'] as $job) : ?>
                             <div class="card-text"> </div>
                             <div class="card-text">
@@ -86,6 +88,7 @@ require 'views/partials/header.view.php' ?>
                         <div class="card-header">
                             <h4>Vaardigheden</h4>
                         </div>
+                        <div class="card-title p-2"><a href="skills/create">Voeg een vaardigheid toe!</a></div>
                         <?php foreach ($vars['skills'] as $skill) : ?>
                             <div class="row p-2">
                                 <b>
@@ -102,6 +105,7 @@ require 'views/partials/header.view.php' ?>
                         <div class="card-header">
                             <h4>Hobbies</h4>
                         </div>
+                        <div class="card-title p-2"><a href="hobbies/create">Voeg een hobby toe!</a></div>
                         <?php foreach ($vars['hobbies'] as $hobby) : ?>
                             <div class="row p-2">
                                 <b>
