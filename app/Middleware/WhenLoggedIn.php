@@ -16,7 +16,7 @@ use App\Libraries\View;
 class WhenLoggedIn
 {
 
-    protected $redirectTo = 'admin';
+    protected $redirectTo = 'me';
 
     /**
      * Check if a user is logged in by checking the session
@@ -32,7 +32,7 @@ class WhenLoggedIn
 
         $this->redirect();
     }
-    
+
 
     /**
      * Redirect to route
@@ -43,5 +43,4 @@ class WhenLoggedIn
             View::redirect($this->redirectTo);
         }
     }
-
 }

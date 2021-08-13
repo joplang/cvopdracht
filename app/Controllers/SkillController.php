@@ -43,6 +43,7 @@ class SkillController extends Controller
 
         $skill = SkillModel::load()->get($skillId);
 
+        dd($_SESSION);
         return View::render('skills/edit.view', [
             'method'    => 'POST',
             'action'    => '/skills/' . $skillId . '/update',
