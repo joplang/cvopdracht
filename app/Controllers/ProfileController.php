@@ -28,7 +28,7 @@ class ProfileController
                 'skills'        => SkillModel::load()->all(NULL, $userId),
             ]);
         } else {
-            header('Location: login');
+            header('Location: /');
         }
     }
 
