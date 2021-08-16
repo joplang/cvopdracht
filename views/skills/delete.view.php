@@ -12,4 +12,3 @@
         <input type="submit" value="verwijder!">
     </div>
 </form>
-<?php require 'views/partials/footer.view.php' ?>

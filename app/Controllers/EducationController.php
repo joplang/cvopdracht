@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Libraries\View;
-use App\Libraries\QueryBuilder;
 use App\Models\EducationModel;
 use App\Helpers\Helper;
 use App\Libraries\MySql;

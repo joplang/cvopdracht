@@ -203,3 +203,7 @@ input[type="email"] {
     background-color: #145374;
     border-style: ridge;
 }
+
+.list-group-item {
+    background-color: #145374;
+}
