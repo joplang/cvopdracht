@@ -75,7 +75,7 @@ class LoginController
     {
         session_destroy();
 
-        View::redirect("login");
+        View::redirect("/");
     }
 
 

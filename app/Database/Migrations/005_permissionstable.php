@@ -31,34 +31,152 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => array([
-            'name'       => 'show_user',
-            'created'    => date('Y-m-d H:i:s'),
-            'created_by' => 1
-        ],
+        'data' => array(
+            [
+                'name'       => 'show_user',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
 
-        [
-            'name'       => 'create_user',
-            'created'    => date('Y-m-d H:i:s'),
-            'created_by' => 1
-        ],
+            [
+                'name'       => 'create_user',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
 
-        [
-            'name'       => 'read_user',
-            'created'    => date('Y-m-d H:i:s'),
-            'created_by' => 1
-        ],
-        
-        [
-            'name'       => 'update_user',
-            'created'    => date('Y-m-d H:i:s'),
-            'created_by' => 1
-        ],
+            [
+                'name'       => 'read_user',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
 
-        [
-            'name'       => 'delete_user',
-            'created'    => date('Y-m-d H:i:s'),
-            'created_by' => 1
-        ]),
+            [
+                'name'       => 'update_user',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'delete_user',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+            [
+                'name'       => 'show_educations',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+            [
+                'name'       => 'create_educations',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'read_educations',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'update_educations',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'delete_educations',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+            [
+                'name'       => 'show_skills',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'create_skills',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'read_skills',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'update_skills',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'delete_skills',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+            [
+                'name'       => 'show_hobbies',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'create_hobbies',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'read_hobbies',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'update_hobbies',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'delete_hobbies',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'show_jobs',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'create_jobs',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'read_jobs',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'update_jobs',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ],
+
+            [
+                'name'       => 'delete_jobs',
+                'created'    => date('Y-m-d H:i:s'),
+                'created_by' => 1
+            ]
+        ),
     ],
 ];

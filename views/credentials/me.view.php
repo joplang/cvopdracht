@@ -91,10 +91,8 @@ require 'views/partials/header.view.php' ?>
                         <div class="card-title p-2"><a href="skills/create">Voeg een vaardigheid toe!</a></div>
                         <?php foreach ($vars['skills'] as $skill) : ?>
                             <div class="row p-2">
-                                <b>
-                                    <div class="col"> <?= $skill->name ?> </div>
-                                </b>
-                                <div class="col"> <?= $skill->info ?> </div>
+                                <div class="col-6"> <b><?= $skill->name ?></b> </div>
+                                <div class="col-6"> <?= $skill->info ?> </div>
                             </div>
 
                         <?php endforeach ?>
@@ -108,10 +106,8 @@ require 'views/partials/header.view.php' ?>
                         <div class="card-title p-2"><a href="hobbies/create">Voeg een hobby toe!</a></div>
                         <?php foreach ($vars['hobbies'] as $hobby) : ?>
                             <div class="row p-2">
-                                <b>
-                                    <div class="col"> <?= $hobby->name ?> </div>
-                                </b>
-                                <div class="col"> <?= $hobby->info ?> </div>
+                                <div class="col-6"> <b><?= $hobby->name ?></b> </div>
+                                <div class="col-6"> <?= $hobby->info ?> </div>
                             </div>
                         <?php endforeach ?>
                     </div>
