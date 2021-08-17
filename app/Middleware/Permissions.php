@@ -10,7 +10,7 @@
  *  Middelware and checks if the requested CRUD action is allowed.
  *  If not, it returns a 403 page
  * ---------------------------------------------------------------------------------------------------------
-*/
+ */
 
 namespace App\Middleware;
 
@@ -20,7 +20,6 @@ use App\Libraries\View;
 
 class Permissions
 {
-
     // Data from Router
     protected $route;
 
@@ -42,10 +41,17 @@ class Permissions
         $this->setUser();
 
         if (!$this->checkPermission()) {
-            return View::render('errors/403.view', [
-                'message' => $route . " | " . $crudString
-            ]);
+            // die(View::render('errors/403.view', [
+            //     'message' => $route . " | " . $crudString
+            // ]));
+
+            header('Location: /views/errors/403.view.php');
         }
+    }
+
+    public function getSuperAdmin()
+    {
+        return $this->superUser;
     }
 
     /**
@@ -61,11 +67,11 @@ class Permissions
         // Get permissions from user
         $user = new UserModel;
         $userPermissions = $user->permissions();
-        
+
         if ($user->role($this->user->id, true) === $this->superUser) {
             return true;
         }
-    
+
         // Check for routes with slashes and get rid of them
         $firstSlashPositions = strpos($this->route, '/');
         if ($firstSlashPositions !== false) {
@@ -78,7 +84,7 @@ class Permissions
 
     /**
      * Get user from session
-    */
+     */
     private function setUser()
     {
         $userId = Helper::getUserIdFromSession();
@@ -88,5 +94,4 @@ class Permissions
             $this->user = $user->findById($userId);
         }
     }
-
 }

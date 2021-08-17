@@ -6,6 +6,7 @@ use App\Libraries\View;
 use App\Models\HobbyModel;
 use App\Helpers\Helper;
 use App\Libraries\MySql;
+use App\Models\UserModel;
 use PDO;
 
 class HobbyController extends Controller
@@ -40,7 +41,11 @@ class HobbyController extends Controller
     {
         $hobbyId = Helper::getIdFromUrl('hobbies');
 
+
+        Helper::checkUserIdAgainstLoginId(HobbyModel::class, $hobbyId);
+
         $hobby = HobbyModel::load()->get($hobbyId);
+
 
         return View::render('hobbies/edit.view', [
             'method'    => 'POST',
