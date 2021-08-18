@@ -75,7 +75,6 @@ class Helper
 	{
 		$data = $model::load()->get($id);
 
-		// $userRole = UserModel::load()->role();
 
 		if (property_exists($data, 'user_id') && (int)$data->user_id !== self::getUserIdFromSession()) {
 			header('Location: /views/errors/403.view.php');

@@ -86,6 +86,9 @@ class HobbyController extends Controller
     {
         $hobbyId = Helper::getIdFromUrl('hobbies');
 
+        Helper::checkUserIdAgainstLoginId(HobbyModel::class, $hobbyId);
+
+
         return View::render('hobbies/delete.view', [
             'method'    => 'POST',
             'action'    => '/hobbies/' . $hobbyId . '/destroy',

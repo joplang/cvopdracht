@@ -68,7 +68,7 @@
                                         <li><?= $job->location ?></li>
                                         <li>Begonnen op <?= $job->start ?> </li>
                                         <li> <?= isset($job->end) ? "Afgerond op " . $job->end . "!" : "Niet volbracht" ?> </li>
-                                        <li><?= $education->info ?></li>
+                                        <li><?= $job->info ?></li>
                                     </ul>
                                 </div>
                             </div>

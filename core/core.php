@@ -8,12 +8,10 @@ function dd()
 {
     $args = func_get_args();
 
-    if (count($args))
-    {
+    if (count($args)) {
         echo "<pre>";
 
-        foreach ($args as $arg)
-        {
+        foreach ($args as $arg) {
             var_dump($arg);
         }
 
@@ -69,19 +67,19 @@ function generateFormTokenHTML()
 /**
  * Plurarize a string
  */
-function pluralize($quantity, $singular, $plural=null)
+function pluralize($quantity, $singular, $plural = null)
 {
-    if ($quantity==1 || !strlen($singular)) return $singular;
-    if ($plural!==null) return $plural;
+    if ($quantity == 1 || !strlen($singular)) return $singular;
+    if ($plural !== null) return $plural;
 
-    $last_letter = strtolower($singular[strlen($singular)-1]);
-    switch($last_letter) {
+    $last_letter = strtolower($singular[strlen($singular) - 1]);
+    switch ($last_letter) {
         case 'y':
-            return substr($singular,0,-1).'ies';
+            return substr($singular, 0, -1) . 'ies';
         case 's':
-            return $singular.'es';
+            return $singular . 'es';
         default:
-            return $singular.'s';
+            return $singular . 's';
     }
 }
 
@@ -93,4 +91,38 @@ function exception_handler($exception)
     $message = $exception->getMessage();
 
     require 'views/errors/exceptions.view.php';
+}
+
+
+function getModels()
+{
+    $models = [];
+
+    $files = scandir($_SERVER['DOCUMENT_ROOT'] . "/app/Models", SCANDIR_SORT_ASCENDING);
+
+    if (isset($_SESSION['models']) && count($files) === count($_SESSION['models'])) {
+        return $_SESSION['models'];
+    }
+
+    foreach ($files as $file) {
+        if ($file == '.' || $file == '..') {
+            continue;
+        }
+
+        $contents = str_replace(' ', '', file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/app/Models/" . $file));
+        $contents = str_replace('"', "'", $contents);
+
+        $pos = stripos($contents, "\$model='");
+
+        if ($pos !== false) {
+            $pos1 = stripos($contents, "'", $pos);
+            if ($pos1 !== false) {
+                $pos2 = stripos($contents, "'", $pos1 + 1);
+
+                $models['App\\Models\\' . str_ireplace('.php', '', $file)] = substr($contents, $pos1 + 1, $pos2 - $pos1 - 1);
+            }
+        }
+    }
+
+    $_SESSION['models'] = $models;
 }

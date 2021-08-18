@@ -28,7 +28,33 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
-        'type' => 'array',
+        'data' => array(
+            [
+                'name'          => 'Ganzenborden',
+                'info'          => 'Gezellig aan snavel',
+                'user_id'       =>  1,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+
+            ],
+            [
+                'name'          => 'Pukkelpop bezoeken',
+                'info'          => 'Ik ben een echte levensgepieter',
+                'user_id'       =>  2,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+
+            ],
+            [
+                'name'          => 'Varen',
+                'info'          => 'Het liefst op een stoomboot',
+                'user_id'       =>  3,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+
+            ],
+
+
+        ),
     ],
 ];

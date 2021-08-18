@@ -14,7 +14,7 @@ return [
         `email` varchar(255) NOT NULL,
         `password` varchar(255) NOT NULL,
         `country` int(11),
-        `city` varchar(255) DEFAULT NULL,
+        `city` varchar(255),
         `birthday` date,
         `created` timestamp,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -30,7 +30,7 @@ return [
         'ALTER TABLE `users` ADD FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
         'ALTER TABLE `users` ADD FOREIGN KEY (`updated_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
         'ALTER TABLE `users` ADD FOREIGN KEY (`deleted_by`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;',
-        'ALTER TABLE `cvoefening`.`users` ADD UNIQUE `email` (`email`);',
+        'ALTER TABLE `users` ADD UNIQUE `email` (`email`);',
     ],
 
     'seeder' => [
@@ -50,7 +50,7 @@ return [
             ],
 
             [
-                'first_name' => 'Pietje',
+                'first_name' => 'Pieter',
                 'last_name'  => 'Puk',
                 'email'      => 'ppuk@codegorilla.nl',
                 'password'   => password_hash('Gorilla1!', PASSWORD_DEFAULT),
