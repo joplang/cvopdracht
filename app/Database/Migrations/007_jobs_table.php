@@ -31,7 +31,41 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
-        'type' => 'array',
+        'data' => array(
+            [
+                'start'         => '2021-08-11',
+                'end'           => '2021-08-27',
+                'name'          => 'Matroosje',
+                'info'          => 'In een duikboot',
+                'location'      => 'De Marine',
+                'user_id'       =>  1,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+
+            ],
+            [
+                'start'         => '2021-08-11',
+                'end'           => '2021-08-27',
+                'name'          => 'Zeehondenverzorger',
+                'info'          => 'In het beroemde zeehondencentrum',
+                'location'      => 'Pieterburen',
+                'user_id'       =>  2,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+
+            ],
+            [
+                'start'         => '2021-08-11',
+                'end'           => '2021-08-27',
+                'name'          => 'Koning',
+                'info'          => 'Argh, het universum valt uit elkaar',
+                'location'      => 'Disneyland',
+                'user_id'       =>  3,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+
+            ],
+
+        ),
     ],
 ];

@@ -48,6 +48,9 @@ class JobController extends Controller
 
         $job = JobsModel::load()->get($jobId);
 
+        Helper::checkUserIdAgainstLoginId(JobsModel::class, $jobId);
+
+
         return View::render('jobs/edit.view', [
             'method'    => 'POST',
             'action'    => '/jobs/' . $jobId . '/update',
@@ -96,6 +99,9 @@ class JobController extends Controller
     public function delete()
     {
         $jobId = Helper::getIdFromUrl('jobs');
+
+        Helper::checkUserIdAgainstLoginId(JobsModel::class, $jobId);
+
 
         return View::render('jobs/delete.view', [
             'method'    => 'POST',

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Libraries\MySql;
+use App\Libraries\View;
 use PDO;
 
 class Model
@@ -14,7 +15,6 @@ class Model
     private $limit;
 
     private $protectedFields;
-
 
     /**
      * Constructor
@@ -32,16 +32,15 @@ class Model
      * Fetching all records from table
      * @return array of objects
      */
-    public function all(array $selectedFields = null, $user_id = null)
+    public function all(array $selectedFields = null, int $userId = null)
     {
         $fields = "*";
-        $user_id = (int)$user_id;
 
         if (!empty($selectedFields) && count($selectedFields) > 0) {
             $fields = $this->composeQuery($selectedFields);
         }
 
-        $sql = "SELECT " . $fields . " FROM " . $this->model . " WHERE " . ($user_id > 0 ? 'user_id=' . $user_id . " AND " : "") . " deleted IS NULL" . (!empty($this->limit) ? " LIMIT " . $this->limit : "");
+        $sql = "SELECT " . $fields . " FROM " . $this->model . " WHERE " . ($userId > 0 ? 'user_id=' . $userId . ' AND ' : '') . " deleted IS NULL" . (!empty($this->limit) ? " LIMIT " . $this->limit : "");
 
         return MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
     }
@@ -63,6 +62,10 @@ class Model
 
         $sql = "SELECT " . $fields .  " FROM " . $this->model . " WHERE id=" . $id . " AND deleted IS NULL";
         $res = MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
+
+        if (count($res) === 0) {
+            die(View::render('errors/404.view'));
+        }
 
         return count($res) > 0 ? $res[0] : null;
     }

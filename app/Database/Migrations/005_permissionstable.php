@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -61,122 +62,38 @@ return [
                 'created'    => date('Y-m-d H:i:s'),
                 'created_by' => 1
             ],
+
+
             [
-                'name'       => 'show_educations',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-            [
-                'name'       => 'create_educations',
+                'name'       => 'show_education',
                 'created'    => date('Y-m-d H:i:s'),
                 'created_by' => 1
             ],
 
             [
-                'name'       => 'read_educations',
+                'name'       => 'create_education',
                 'created'    => date('Y-m-d H:i:s'),
                 'created_by' => 1
             ],
 
             [
-                'name'       => 'update_educations',
+                'name'       => 'read_education',
                 'created'    => date('Y-m-d H:i:s'),
                 'created_by' => 1
             ],
 
             [
-                'name'       => 'delete_educations',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-            [
-                'name'       => 'show_skills',
+                'name'       => 'update_education',
                 'created'    => date('Y-m-d H:i:s'),
                 'created_by' => 1
             ],
 
             [
-                'name'       => 'create_skills',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'read_skills',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'update_skills',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'delete_skills',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-            [
-                'name'       => 'show_hobbies',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'create_hobbies',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'read_hobbies',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'update_hobbies',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'delete_hobbies',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'show_jobs',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'create_jobs',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'read_jobs',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'update_jobs',
-                'created'    => date('Y-m-d H:i:s'),
-                'created_by' => 1
-            ],
-
-            [
-                'name'       => 'delete_jobs',
+                'name'       => 'delete_education',
                 'created'    => date('Y-m-d H:i:s'),
                 'created_by' => 1
             ]
+
         ),
     ],
 ];

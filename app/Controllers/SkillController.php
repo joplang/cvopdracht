@@ -43,6 +43,9 @@ class SkillController extends Controller
 
         $skill = SkillModel::load()->get($skillId);
 
+        Helper::checkUserIdAgainstLoginId(SkillModel::class, $skillId);
+
+
         return View::render('skills/edit.view', [
             'method'    => 'POST',
             'action'    => '/skills/' . $skillId . '/update',
@@ -82,6 +85,9 @@ class SkillController extends Controller
     public function delete()
     {
         $skillId = Helper::getIdFromUrl('skills');
+
+        Helper::checkUserIdAgainstLoginId(SkillModel::class, $skillId);
+
 
         return View::render('skills/delete.view', [
             'method'    => 'POST',

@@ -11,7 +11,7 @@ return [
         `start` date NOT NULL,
         `end` date DEFAULT NULL,
         `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-        `info` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+        `info` text,
         `organisation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
         `created` timestamp NOT NULL,
         `updated` timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -31,7 +31,38 @@ return [
 
     'seeder' => [
         'type' => 'array',
-        'data' => [],
-        'type' => 'array',
+        'data' => array(
+            [
+                'start'         => '2021-08-11',
+                'end'           => '2021-08-27',
+                'name'          => 'Zeevaartschool',
+                'info'          => 'Hier heb ik mijn matrozenpakje verdient',
+                'organisation'  => 'Rijksuniversiteit Duckstad',
+                'user_id'       =>  1,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+            ],
+            [
+                'start'         => '2021-08-11',
+                'end'           => '2021-08-27',
+                'name'          => 'Psychiatrie',
+                'info'          => 'Hier had Pieter zijn baan',
+                'organisation'  => 'Pieter Baan Centrum',
+                'user_id'       =>  2,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+            ],
+            [
+                'start'         => '2021-08-11',
+                'end'           => '2021-08-27',
+                'name'          => 'Cursus Kaasmaken',
+                'info'          => 'Ik had er wel kaas van gegeten',
+                'organisation'  => 'De Muishoudschool',
+                'user_id'       =>  3,
+                'created'       =>  date('Y-m-d H:i:s'),
+                'created_by'    =>  1,
+            ],
+
+        ),
     ],
 ];

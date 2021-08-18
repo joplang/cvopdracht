@@ -45,6 +45,9 @@ class EducationController extends Controller
 
         $education = EducationModel::load()->get($educationId);
 
+        Helper::checkUserIdAgainstLoginId(EducationModel::class, $educationId);
+
+
         return View::render('educations/edit.view', [
             'method'    => 'POST',
             'action'    => '/educations/' . $educationId . '/update',
@@ -93,6 +96,9 @@ class EducationController extends Controller
     public function delete()
     {
         $educationId = Helper::getIdFromUrl('educations');
+
+        Helper::checkUserIdAgainstLoginId(EducationModel::class, $educationId);
+
 
         return View::render('educations/delete.view', [
             'method'    => 'POST',
